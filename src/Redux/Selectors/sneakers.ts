@@ -1,6 +1,0 @@
-import { RootState } from '../store.ts'
-
-export const sneakersSelectors = {
-	getSneakersArr: (state: RootState) => state.sneakers.sneakersArr,
-	getSneakers: (state: RootState) => state.sneakers.sneakers
-}
