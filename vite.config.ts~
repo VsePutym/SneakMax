@@ -1,0 +1,18 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+export default defineConfig({
+	plugins: [react()],
+	resolve: {
+		alias: {
+			'@style': path.resolve(__dirname, 'src/Styles'),
+			'@icons': path.resolve(__dirname, 'src/assets/icons'),
+			'@images': path.resolve(__dirname, 'src/assets/image')
+		}
+	},
+	build: {
+		outDir: 'dist', // Убедитесь, что сборка идёт в папку dist
+	},
+	base: '/SneakMax/'  // Ваш репозиторий на GitHub
+})

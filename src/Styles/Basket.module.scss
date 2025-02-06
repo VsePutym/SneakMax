@@ -1,0 +1,35 @@
+.wrapperLottie{
+	flex: 1  auto;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: #051129;
+	padding: 30px;
+}
+.lottie{
+	height: 300px;
+}
+.wrapperPrice{
+	color: #051129;
+	font-weight: bold;
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.title{
+	font-weight: bold;
+	color: #051129;
+	font-size: 14px;
+}
+.container{
+	h1{
+		margin-bottom: 20px;
+		font-size: 25px;
+	}
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.wrapperSubmit{
+	color: #333333;
+	padding: 30px;
+}

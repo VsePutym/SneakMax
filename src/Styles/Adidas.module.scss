@@ -1,0 +1,21 @@
+.title{
+	position: absolute;
+	top: 50%;
+	left: 10%;
+}
+.container{
+	position: relative;
+}
+
+@media (max-width: 770px) {
+	.title{
+		left: 5%;
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 770px) {
+	.title{
+		font-size: 16px;
+	}
+}

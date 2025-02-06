@@ -1,0 +1,29 @@
+export interface Product {
+	id: number
+	vendorCode: string
+	inStock: number
+	title: string
+	description: string
+	imgUrl: string
+	stars: number
+	sizes: number[]
+	price: number
+	oldPrice: number
+	gender: 'Женский' | 'Мужской'
+	color: string
+	compound: string
+	country: string
+}
+
+export type Products = Product[]
+
+export interface typeSneakers {
+	id: number
+	title: string
+	checked: boolean
+}
+
+export interface typeSize {
+	id: number
+	title: string
+}

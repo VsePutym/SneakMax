@@ -1,0 +1,60 @@
+.wrapperContainer {
+	transform: translateY(-3px);
+	background: linear-gradient(to right, #051129 0%, #051129 40%, #000000 100%);
+	position: relative;
+	padding-bottom: 100px;
+	box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5)
+}
+.container {
+	overflow-x: hidden;
+	max-width: 1260px;
+	color: rgba(68, 75, 88, 1);
+	font-family: IntroBook;
+	font-weight: normal;
+	margin: 60px auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 30px;
+}
+.control{
+	max-width: 290px;
+	z-index: 50;
+	margin-right: 20px;
+	border-radius: 8px; /* Для скругления углов */
+	box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.1), 2px 8px 16px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	height: fit-content;
+	background-color: #fff; /* Для видимости тени */
+}
+.containerCatalog {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	font-family: IntroBook;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+.wrapperSize{
+	margin-bottom: 20px;
+}
+.wrapperBtns{
+margin: 40px auto;
+	Button{
+		display: block;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 700px) {
+	.containerCatalog{
+		display: block;
+	}
+	.control{
+		max-width: 100%;
+		margin-bottom: 30px;
+		margin-right: 0;
+	}
+}

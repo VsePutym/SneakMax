@@ -1,0 +1,45 @@
+import { Button } from '@mui/material'
+import style from '@style/Catalog.module.scss'
+import { useEffect } from 'react'
+import { useAppDispatch, useAppSelector } from '../../Hooks/Hooks.ts'
+import { getSneakers } from '../../Redux/Actions/sneakersActions.ts'
+import { filterSelectors } from '../../Redux/Selectors/filter.ts'
+import { sneakersSelectors } from '../../Redux/Selectors/sneakers.ts'
+import FormCheckboks from './FormCheckboks.tsx'
+import SizeGrid from './SizeGrid.tsx'
+import CustomizedSlider from './SliderAirBnB.tsx'
+
+const FilterControl = () => {
+	const dispatch = useAppDispatch()
+	const filterData = useAppSelector(filterSelectors.getAllFilters)
+	const sneakers = useAppSelector(sneakersSelectors.getSneakersArr)
+	const handleGetSneakers = () => {
+		const data = filterData
+		dispatch(getSneakers({ data }))
+	}
+
+	useEffect(() => {
+		if (sneakers.length === 0) {
+			handleGetSneakers()
+		}
+	}, [])
+
+	return (
+		<div className={style.control}>
+			<p>Подбор по параметрам</p>
+			<p>цена, руб</p>
+			<CustomizedSlider />
+			<FormCheckboks />
+			<SizeGrid />
+
+			<div className={style.wrapperBtns}>
+				<Button variant='contained' onClick={handleGetSneakers}>
+					Применить
+				</Button>
+				<Button variant='text'>сбросить</Button>
+			</div>
+		</div>
+	)
+}
+
+export default FilterControl

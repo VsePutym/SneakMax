@@ -1,0 +1,62 @@
+.wrapperContainer{
+	background: linear-gradient(to right, #051129 0%, #051129 40%, #000000 100%);
+padding-bottom: 50px;
+	width: 100%;
+	box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5)
+}
+.container{
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.parallax1{
+max-width: 100%;
+	width: 100%;
+}
+
+.title{
+	font-size: 100px;
+	top: 50%; /* Центрирование по вертикали */
+	left: 50%; /* Центрирование по горизонтали */
+	transform: translate(-50%, -50%); /* Сдвиг для точного выравнивания */
+	position: absolute;
+}
+.description{
+	font-family: 'IntoRegular', sans-serif;
+	font-weight: normal;
+	padding: 50px;
+	max-width: 1200px;
+	text-align: start;
+	margin: 0 auto;
+}
+.span{
+	display: flex;
+}
+
+@media (max-width: 1650px) {
+	.title{
+		font-size: 70px;
+	}
+}
+
+@media (max-width: 1180px) {
+	.title{
+		font-size: 50px;
+	}
+}
+
+@media (max-width: 1180px) {
+	.title{
+		font-size: 30px;
+	}
+}
+
+@media (max-width: 540px) {
+	.title{
+		font-size: 22px;
+	}
+	.description{
+		padding: 20px;
+	}
+}

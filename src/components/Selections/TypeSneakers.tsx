@@ -1,0 +1,59 @@
+import { Checkbox, FormControlLabel } from '@mui/material'
+import style from '@style/Selection.module.scss'
+import { selectorSneakers } from '../../data/Selection.ts'
+import { useAppDispatch, useAppSelector } from '../../Hooks/Hooks.ts'
+import { selectionSneakers } from '../../Redux/Selectors/selectionSneakers.ts'
+import { deleteType, setType } from '../../Redux/Slices/selectionSlice.ts'
+import { typeSneakers } from '../../Types/Products.ts'
+
+const TypeSneakers = () => {
+	const getCheckBox = useAppSelector(selectionSneakers.getCheckBox)
+	const dispatch = useAppDispatch()
+
+	// Функция для поиска выбранного элемента
+	const findChecked = (id: number) => {
+		return getCheckBox.some(item => item.id === id && item.checked)
+	}
+
+	// Функция для переключения состояния чекбокса
+	const pushType = (checkBox: typeSneakers) => {
+		const isChecked = getCheckBox.some(
+			item => item.id === checkBox.id && item.checked
+		)
+		const updatedItem = { ...checkBox, checked: !isChecked }
+		if (updatedItem.checked) {
+			dispatch(setType(updatedItem))
+		} else {
+			dispatch(deleteType(updatedItem.id))
+		}
+	}
+
+	return (
+		<div>
+			<p className={style.titleType}>Какой тип кроссовок рассматриваете?</p>
+			<ul className={style.wrapperCard}>
+				{selectorSneakers.map(item => (
+					<li className={style.card} key={item.id}>
+						<img className={style.img} src={item.img} alt={item.title} />
+						<div>
+							<FormControlLabel
+								control={
+									<Checkbox
+										className={style.BlockCheckBox}
+										checked={findChecked(item.id)} // Используем findChecked для проверки
+										onChange={() => pushType(item)} // Переключаем состояние при изменении
+										name={item.title} // Имя для идентификации
+										color='primary'
+									/>
+								}
+								label={item.title}
+							/>
+						</div>
+					</li>
+				))}
+			</ul>
+		</div>
+	)
+}
+
+export default TypeSneakers

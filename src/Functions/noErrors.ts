@@ -1,0 +1,14 @@
+const originalConsoleError = console.error
+
+export const noErrors = () => {
+	console.error = (...args) => {
+		if (
+			(args[0]?.includes('Refused to connect') &&
+				args[0]?.includes('Content Security Policy')) ||
+			args[0]?.includes('net::ERR_BLOCKED_BY_CLIENT')
+		) {
+			return
+		}
+		originalConsoleError(...args)
+	}
+}

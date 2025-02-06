@@ -1,0 +1,50 @@
+import { Checkbox, FormControlLabel } from '@mui/material'
+import style from '@style/Catalog.module.scss'
+import { useAppDispatch, useAppSelector } from '../../Hooks/Hooks.ts'
+import { filterSelectors } from '../../Redux/Selectors/filter.ts'
+import { setGender } from '../../Redux/Slices/filterSlice.ts'
+
+const FormCheckboks = () => {
+	const gender = useAppSelector(filterSelectors.getGender)
+	const dispatch = useAppDispatch()
+
+	const handleGenderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const newGender = event.target.name as 'Женский' | 'Мужской' // Получаем новый пол из имени чекбокса
+		dispatch(setGender(newGender)) // Отправляем изменение в глобальное состояние Redux
+	}
+	return (
+		<div className={style.wrapperMaile}>
+			<p>Пол</p>
+			<FormControlLabel
+				control={
+					<Checkbox
+						checked={gender === 'Мужской'} // Если выбран мужской пол
+						onChange={handleGenderChange} // Обработчик изменения
+						name='Мужской' // Имя для идентификации, какой чекбокс активирован
+						color='primary'
+					/>
+				}
+				label='Мужской'
+				sx={{
+					color: 'rgba(68, 75, 88, 1)'
+				}}
+			/>
+			<FormControlLabel
+				control={
+					<Checkbox
+						checked={gender === 'Женский'} // Если выбран женский пол
+						onChange={handleGenderChange} // Обработчик изменения
+						name='Женский' // Имя для идентификации, какой чекбокс активирован
+						color='primary'
+					/>
+				}
+				label='Женский'
+				sx={{
+					color: 'rgba(68, 75, 88, 1)'
+				}}
+			/>
+		</div>
+	)
+}
+
+export default FormCheckboks

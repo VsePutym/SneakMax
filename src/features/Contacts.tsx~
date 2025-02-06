@@ -1,0 +1,73 @@
+import InstagramIcon from '@mui/icons-material/Instagram'
+import TelegramIcon from '@mui/icons-material/Telegram'
+import TwitterIcon from '@mui/icons-material/Twitter'
+import style from '@style/Contacts.module.scss'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip'
+import { styled } from '@mui/material/styles'
+
+
+
+const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
+	<Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+	[`& .${tooltipClasses.tooltip}`]: {
+		backgroundColor: theme.palette.common.white,
+		color: 'rgba(0, 0, 0, 0.87)',
+		fontFamily: 'IntroRegular, sans-serif',
+		boxShadow: theme.shadows[1],
+		fontSize: 11
+	}
+}))
+const Contacts = () => {
+	return (
+		<section id='Contacts' className={style.section}>
+			<div className={style.container}>
+				<div className={style.descriptions}>
+					<h2 className={style.title}>Контакты</h2>
+					<div className={style.wrapperHelps}>
+						<p className={style.subTitleMin}>главный офис</p>
+						<LightTooltip
+							placement='top'
+							title='Адрес и телефон для корреспонденции, инвесторов. Вопросы о доставке, качестве обслуживания и товара просьба задавать в отдел продаж'
+						>
+							<button className={style.helperImg}>?</button>
+						</LightTooltip>
+					</div>
+					<div className={style.phonesWrapper}>
+						<div className={style.ContactsOne}>
+							<a href='tel:88005553535'>+7 (800) 555-35-35</a>
+							<p>г.Санкт-Петербург, ул. Большая Конюшенная 19</p>
+						</div>
+						<div className={style.ContactsTwo}>
+							<p className={style.subTitleMin}>Отдел продаж</p>
+							<a href='tel:88005553535'>+7 (800) 555-30-30</a>
+							<p>г.Санкт-Петербург, ул. Большая Конюшенная 19</p>
+						</div>
+					</div>
+					<div className={style.wrapperSocial}>
+						<TwitterIcon sx={{ mr: '10px' }} color='primary' fontSize='large' />
+						<TelegramIcon
+							sx={{ mr: '10px' }}
+							color='primary'
+							fontSize='large'
+						/>
+						<InstagramIcon color='primary' fontSize='large' />
+					</div>
+				</div>
+				<div
+					className={style.wrapperMap}
+					style={{ position: 'relative', overflow: 'hidden' }}
+				>
+					<iframe
+						className={style.map}
+						src='https://yandex.ru/map-widget/v1/?ll=30.323700%2C59.938698&mode=whatshere&whatshere%5Bpoint%5D=30.323036%2C59.938631&whatshere%5Bzoom%5D=17&z=18.54'
+						allowFullScreen={true}
+						style={{ position: 'relative' }}
+					></iframe>
+				</div>
+			</div>
+		</section>
+	)
+}
+
+export default Contacts

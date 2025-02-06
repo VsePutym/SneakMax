@@ -1,0 +1,9 @@
+import { RootState } from '../store.ts'
+
+export const selectionSneakers = {
+	getAllSelectionSneakers: (state: RootState) => state.selection,
+	getPageSelection: (state: RootState) => state.selection.page,
+	getCheckBox: (state: RootState) => state.selection.typeSneakers,
+	getCheckBoxSize: (state: RootState) => state.selection.size,
+	getText: (state: RootState) => state.selection.text
+}
